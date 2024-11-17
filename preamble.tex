@@ -1,0 +1,53 @@
+\usepackage[
+backend=biber,
+style=abnt,
+sorting=nyt
+]{biblatex}
+\usepackage{csquotes}
+\addbibresource{bibliografia.bib}
+\AtBeginBibliography{\raggedright \footnotesize}
+\setlength{\bibitemsep}{\baselineskip}
+
+\usepackage{amsmath} %Para usar símbolos matemáticos
+
+\usepackage[brazil]{babel} %Para usar a linguagem português
+\addto\captionsbrazil{
+    \renewcommand{\contentsname}{\texorpdfstring{\normalsize SUMÁRIO}{SUMÁRIO}}
+    \renewcommand{\listtablename}{\texorpdfstring{\normalsize ÍNDICE DE TABELAS}{ÍNDICE DE TABELAS}}
+    \renewcommand{\listfigurename}{\texorpdfstring{\normalsize ÍNDICE DE FIGURAS}{ÍNDICE DE FIGURAS}}
+}
+
+\usepackage{float}
+\usepackage{graphicx} %Para inserir imagens
+\usepackage{geometry} %Para alterar propriedades da página
+\geometry{
+a4paper,
+left=30mm,
+top=30mm,
+right=20mm,
+bottom=20mm
+}
+
+\usepackage[hidelinks, draft]{hyperref}
+
+\input{tocloft-settings}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalsize\bfseries\MakeUppercase}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalsize\MakeUppercase}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{0.5em}{}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Limpa os cabeçalhos e rodapés
+\fancyhead[R]{\footnotesize\thepage} % Coloca o número da página no canto superior direito
+\fancyfoot[C]{} % Remove qualquer número de página no rodapé
+\renewcommand{\headrulewidth}{0pt} % Remove a linha horizontal do cabeçalho
+\renewcommand{\footrulewidth}{0pt} % Remove a linha horizontal do rodapé
+
+\usepackage{multicol}
+\usepackage[american]{circuitikz}
+\usetikzlibrary{external}\tikzexternalize
+
+\usepackage{setspace} %Para alterar o espaçamento das linhas
+\setstretch{1.5}
