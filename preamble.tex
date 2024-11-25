@@ -28,7 +28,7 @@ right=20mm,
 bottom=20mm
 }
 
-\usepackage[hidelinks, draft]{hyperref}
+\usepackage[hidelinks]{hyperref}
 
 \input{tocloft-settings}
 
@@ -45,9 +45,11 @@ bottom=20mm
 \renewcommand{\headrulewidth}{0pt} % Remove a linha horizontal do cabeçalho
 \renewcommand{\footrulewidth}{0pt} % Remove a linha horizontal do rodapé
 
+\usepackage{lipsum}
 \usepackage{multicol}
 \usepackage[american]{circuitikz}
-\usetikzlibrary{external}\tikzexternalize
+\usetikzlibrary{external}\tikzexternalize[prefix=external-figures/]
 
 \usepackage{setspace} %Para alterar o espaçamento das linhas
+\usepackage{indentfirst}
 \setstretch{1.5}

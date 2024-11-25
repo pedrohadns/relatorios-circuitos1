@@ -1,4 +1,4 @@
-\documentclass[draft, 12pt]{article}
+\documentclass[12pt]{article}
 \input{preamble}
 
 \begin{document}
@@ -16,17 +16,12 @@
     \thispagestyle{empty}
     \newpage
 
-    \section{INTRODUÇÃO TEÓRICA}\indent
+    \section{Seção}
+    \lipsum[1]
     
-    As cargas\footnote{teste nota de rodapé} mais comuns utilizadas não são puramente resistivas, podendo citar como exemplo o motor de indução, que em seu modelo simplificado é um circuito RL (BARBI, 2007) \parencite{knuthwebsite}. Em virtude da presença de cargas com características indutivas faz-se necessário analisar a influência deste tipo de carga na retificação, conforme pode ser observado na Tabela \ref{tab:tabela teste}.
+    \subsection{SUBSEÇÃO}
 
-    \subsection{SUBSEÇÃO}\indent
-    
-    Teste do próximo parágrafo. Teste da compilação.
-
-    \subsubsection{Subsubseção}\indent
-    
-    Teste 2.
+    \subsubsection{Subsubseção}
     \begin{figure}[h!]
         \centering
         \begin{minipage}{0.5\textwidth}
@@ -38,14 +33,10 @@
         \end{minipage}
     \end{figure}
 \newpage
-Teste circuitos:
 
-\begin{tikzpicture}
-    \draw (0,0) -- (1,0);
-\end{tikzpicture}
-
+Exemplos circuitos:
 \begin{center}\small
-    \begin{circuitikz}[american]
+    \begin{tikzpicture}[scale=0.8, transform shape]
         \draw (0,0) to [resistor, l=10 $\Omega$] (3,0) to [short, *-] (3,0)
         to [resistor, l_=60 $\Omega$] (3,2)
         to [resistor, l_=10 $\Omega$] (3,4)
@@ -61,12 +52,13 @@ Teste circuitos:
         \draw (7,6) to (7,6) -- (10,6)
         to [R, l=20 $\Omega$] (10,0)
         to (10,0) -- (7,0);
-    \end{circuitikz}
+    \end{tikzpicture}
 \end{center}
 
 \begin{center}
+\resizebox{10cm}{!}{
 \Large
-\begin{circuitikz}[scale=0.5, transform shape]
+\begin{tikzpicture}
     \node (A) at (6.5,3) {};
     \node (B) at (8.5,3) {};
     \ctikzset{nodes width=0.08};
@@ -82,11 +74,10 @@ Teste circuitos:
     \draw (3,3) to [R, l=1 k$\Omega$, -*] (A) node[label={above: +}] {};
     \draw (12,3) to [R, l_=5 k$\Omega$, -*] (B) node[label={above: -}] {};
     \draw (A) to [open, l=$v_0$] (B);
-\end{circuitikz}
+\end{tikzpicture}}
 \end{center} 
 
-
-Isso está na figura \ref{fig:minhaFigura}. Segue a equação \ref{eq: Potência} da Potência:
+Segue a equação \ref{eq: Potência} da Potência:
     \begin{multicols}{2}
         
         \begin{equation}
@@ -102,7 +93,7 @@ Isso está na figura \ref{fig:minhaFigura}. Segue a equação \ref{eq: Potência
     
 \begin{table}[H]
     \centering
-    \caption{Sample Table 1}
+    \caption{Tabela de exemplo 1}
     \begin{tabular}{|c|c|}
         \hline
         Column 1 & Column 2 \\
@@ -115,7 +106,7 @@ Isso está na figura \ref{fig:minhaFigura}. Segue a equação \ref{eq: Potência
 
 \begin{table}[H]
     \centering
-    \caption{Sample Table 2}
+    \caption{Tabela de exemplo 2}
     \begin{tabular}{|c|c|}
         \hline
         Column A & Column B \\
