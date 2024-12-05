@@ -1,4 +1,4 @@
-\documentclass[draft, 12pt]{article}
+\documentclass[12pt]{article}
 \input{preamble}
 
 \begin{document}
@@ -16,9 +16,81 @@
     \thispagestyle{empty}
     \newpage
 
-    \section{INTRODUÇÃO TEÓRICA}\indent
+    \section*{Pedro Henrique Alves do Nascimento}
+    \section{INTRODUÇÃO TEÓRICA}
+    \subsection{LEI DE OHM}\indent
     
-    As cargas\footnote{teste nota de rodapé} mais comuns utilizadas não são puramente resistivas, podendo citar como exemplo o motor de indução, que em seu modelo simplificado é um circuito RL (BARBI, 2007) \parencite{knuthwebsite}. Em virtude da presença de cargas com características indutivas faz-se necessário analisar a influência deste tipo de carga na retificação, conforme pode ser observado na Tabela \ref{tab:tabela teste}.
+    A lei de Ohm é a relação algébrica entre corrente tensão para um resistor \parencite{nilsson}, dada pela Equação \ref{lei-de-ohm}
+    \begin{equation}
+        V=R\times i \label{lei-de-ohm}
+    \end{equation}
+    onde $V$ é a tensão, em Volts (V) nos terminais do resistor, $R$ é a resistência elétrica do resistor, em Ohms ($\Omega$) e $i$ a corrente que passa pelo resistor, em Ampères (A).
+
+    Ou seja, traçando-se um gráfico de tensão $\times$ corrente para um resistor ôhmico, tem-se uma função linear, onde $\tan{\alpha}=\frac{V'}{i'}$ é a resistência $R$ daquele resistor, como mostrado na Figura \ref{fig:resistorohmico}.
+        \begin{figure}[h!]
+            \centering
+            \begin{minipage}{0.5\textwidth}
+                \centering
+                \caption{Gráfico $V\times i$ de um resistor ôhmico.}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        axis lines=middle,
+                        xlabel={$i$},
+                        ylabel={$V$},
+                        xmin=-0.5, xmax=3,
+                        ymin=-0.5, ymax=3,
+                        xtick={1.15},
+                        xticklabel={$i'$},
+                        ytick={2},
+                        yticklabel={$V'$}
+                    ]
+                    \addplot[
+                        thick,
+                        domain=0:2,
+                        samples=5,
+                    ] {sqrt(3)*x};
+                    \draw[smooth, thick] (0.5,0) arc (0:60:0.5) node[midway] {$\alpha$};
+                    \node at (axis cs:0,0) [anchor=north east] {$0$};
+                    \draw[dashed, color=gray!50] (0,2) -- (1.15,2) -- (1.15,0);
+                    \end{axis}
+                \end{tikzpicture}
+
+                \raggedright \footnotesize Fonte: Elaborado pelo autor.
+                \label{fig:resistorohmico}
+            \end{minipage}
+        \end{figure}
+    
+    \subsection{RESISTORES}\indent
+
+    Os resistores podem ser classificados em fixos (resistência constante) e variáveis (resistência que pode ser alterada).
+
+    Os resistores fixos têm suas propriedades, valor nominal e tolerância, classificadas conforme uma tabela de cores indicada na Tabela \ref{tab:corResist}.
+
+    \begin{table}
+        \caption{Tabela do cores dos resistores fixos.}
+        \label{tab:corResist}
+        \centering
+        \vspace{0.5em}
+        \setstretch{1.5}{
+        \begin{tabular}{ccclc}
+        \hline
+        Cor & 1ª Faixa & 2ª Faixa & Multiplicador ($\Omega$) & Tolerância\\
+        \hline Preto & 0 & 0 & $\times 1$ & \\
+        Marrom & 1 & 1 & $\times 10$ & $\pm$ 1\%\\
+        Vermelho & 2 & 2 & $\times 100$ & $\pm$ 2\%\\
+        Laranja & 3 & 3 & $\times 1$ k & \\
+        Amarelo & 4 & 4 & $\times 10$ k & \\
+        Verde & 5 & 5 & $\times 100$ k & $\pm$ 0.5\%\\
+        Azul & 6 & 6 & $\times 1$ M & $\pm$ 0.25\%\\
+        Violeta & 7 & 7 & $\times 10$ M & $\pm$ 0.1\%\\
+        Cinza & 8 & 8 & & $\pm$ 0.05\%\\
+        Branco & 9 & 9 & & \\
+        Dourado & & & $\times 0.1$ & $\pm$ 5\%\\
+        Prateado & & & $\times 0.01$ & $\pm$ 10\%\\
+        \hline
+        \end{tabular}}\\
+        \footnotesize Fonte: blog.fazedores.com (Adaptado)\nocite{codigo_cores_resistores}.
+    \end{table}
 
     \subsection{SUBSEÇÃO}\indent
     
