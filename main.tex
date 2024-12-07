@@ -62,10 +62,20 @@
     
     \subsection{RESISTORES}\indent
 
-    Os resistores podem ser classificados em fixos (resistência constante) e variáveis (resistência que pode ser alterada).
+    Resistores são componentes eletrônicos projetados para limitar a passagem de corrente elétrica em um circuito, transformando parte da energia elétrica em calor, e são geralmente feitos de materiais com alta resistividade, como carbono ou filme metálico. Os resistores podem ser classificados em fixos (resistência constante) e variáveis (resistência que pode ser alterada).
 
     Os resistores fixos têm suas propriedades, valor nominal e tolerância, classificadas conforme uma tabela de cores indicada na Tabela \ref{tab:corResist}.
-
+    
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \caption{Resistor e suas faixas.}
+            \includegraphics[width=\textwidth]{external-figures/cores-resistores.png}
+            \raggedright \footnotesize Fonte: kitsarduino.com.br (Adaptado).
+            \label{fig:resistor}
+        \end{minipage}
+    \end{figure}
     \begin{table}
         \caption{Tabela do cores dos resistores fixos.}
         \label{tab:corResist}
@@ -92,11 +102,35 @@
         \footnotesize Fonte: blog.fazedores.com (Adaptado)\nocite{codigo_cores_resistores}.
     \end{table}
 
-    \subsection{SUBSEÇÃO}\indent
-    
-    Teste do próximo parágrafo. Teste da compilação.
+    Resistores variáveis possuem três terminais, a resistência desejada é obtida variando a posição do terminal central em relação aos mais externos, a resistência máxima é obtida quando o terminal central está na posição 3. Um exemplo de potenciômetro é mostrado na Figura \ref{fig:potenciometro}.
 
-    \subsubsection{Subsubseção}\indent
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{0.4\textwidth}
+            \centering
+            \caption{Representação gráfica de potenciômetro.}
+            \includegraphics[width=\textwidth]{external-figures/resistor-variavel.png}
+            \raggedright \footnotesize Fonte: ricardoteix.com.
+            \label{fig:potenciometro}
+        \end{minipage}
+    \end{figure}
+    
+    Esse funcionamento advém da variação do comprimento do segmento do resistor, que, pela equação $R = \rho\times\frac{L}{A}$ --- onde $R$ é a resistência do material, $\rho$ a sua resistividade, $L$ o comprimento e $A$ a área da seção transversal --- é diretamente proporcional ao comprimento do resistor, ou seja, quanto mais próximo do terminal 3, maior a resistência obtida.
+
+    Alguns usos de resistores variáveis se dão em equipamentos de áudio, onde o volume, por exemplo, depende diretamente da tensão.
+    \begin{figure}[H]
+        \centering
+        \caption{Representação de resistor fixo e variável em um circuito.}
+        \begin{tikzpicture}
+            \draw (-0.5,0) -- (0,0) to [R, label=$R$] (1,0) -- (1.5,0) to
+            [open] (2.5,0) -- (3,0) to
+            [vR, l=$R_{var}$] (4,0) -- (4.5,0);
+        \end{tikzpicture}
+    \end{figure}
+    
+
+    \subsection{OHMÍMETRO}\indent
+    Ohmímetros são equipamentos de medição de resistência elétrica.
     
     Teste 2.
     \begin{figure}[h!]
