@@ -29,9 +29,9 @@
     Ou seja, traçando-se um gráfico de tensão $\times$ corrente para um resistor ôhmico, tem-se uma função linear, onde $\tan{\alpha}=\frac{V'}{i'}$ é a resistência $R$ daquele resistor, como mostrado na Figura \ref{fig:resistorohmico}.
         \begin{figure}[h!]
             \centering
+            \caption{Gráfico $V\times i$ de um resistor ôhmico.}
             \begin{minipage}{0.5\textwidth}
                 \centering
-                \caption{Gráfico $V\times i$ de um resistor ôhmico.}
                 \begin{tikzpicture}
                     \begin{axis}[
                         axis lines=middle,
@@ -62,9 +62,11 @@
     
     \subsection{RESISTORES}\indent
 
-    Resistores são componentes eletrônicos projetados para limitar a passagem de corrente elétrica em um circuito, transformando parte da energia elétrica em calor, e são geralmente feitos de materiais com alta resistividade, como carbono ou filme metálico. Os resistores podem ser classificados em fixos (resistência constante) e variáveis (resistência que pode ser alterada).
+    Resistores são componentes eletrônicos fundamentais, projetados para limitar o fluxo de corrente elétrica em um circuito, convertendo parte dessa energia em calor. Estes dispositivos são tipicamente feitos de materiais com alta resistividade, como carbono ou filme metálico. Dependendo de suas propriedades, os resistores podem ser classificados em fixos, cuja resistência é constante, e variáveis, cuja resistência pode ser ajustada conforme necessário.
 
-    Os resistores fixos têm suas propriedades, valor nominal e tolerância, classificadas conforme uma tabela de cores indicada na Tabela \ref{tab:corResist}.
+    \subsubsection{Resistores Fixos}\indent
+
+    Os resistores fixos possuem características como valor nominal e tolerância, que são determinadas por uma tabela de cores. Cada cor na tabela corresponde a um valor específico, facilitando a identificação e a seleção do resistor adequado para uma aplicação particular. A Tabela \ref{tab:corResist} e a Figura \ref{fig:resistor} ilustram o processo de codificação por cores e a representação de um resistor com suas faixas.
     
     \begin{figure}[H]
         \centering
@@ -72,15 +74,15 @@
             \centering
             \caption{Resistor e suas faixas.}
             \includegraphics[width=\textwidth]{external-figures/cores-resistores.png}
-            \raggedright \footnotesize Fonte: kitsarduino.com.br (Adaptado).
+            \raggedright \footnotesize Fonte: kitsarduino.com.br (2020, Adaptado)\nocite{kits_arduino}.
             \label{fig:resistor}
         \end{minipage}
     \end{figure}
-    \begin{table}
+    \begin{table}[H]
         \caption{Tabela do cores dos resistores fixos.}
         \label{tab:corResist}
         \centering
-        \vspace{0.5em}
+        % \vspace{0.5em}
         \setstretch{1.5}{
         \begin{tabular}{ccclc}
         \hline
@@ -102,22 +104,27 @@
         \footnotesize Fonte: blog.fazedores.com (Adaptado)\nocite{codigo_cores_resistores}.
     \end{table}
 
-    Resistores variáveis possuem três terminais, a resistência desejada é obtida variando a posição do terminal central em relação aos mais externos, a resistência máxima é obtida quando o terminal central está na posição 3. Um exemplo de potenciômetro é mostrado na Figura \ref{fig:potenciometro}.
+    \subsubsection{Resistores Variáveis}\indent
+
+    Os resistores variáveis, como os potenciômetros, são componentes com três terminais. A resistência é ajustada movendo o terminal central em relação aos terminais externos. A resistência máxima é obtida quando o terminal central é posicionado na posição 3 da Figura \ref{fig:potenciometro}.
+    
+    O funcionamento desses resistores se baseia na variação do comprimento do segmento resistivo. De acordo com a equação $R = \rho\times\frac{L}{A}$ --- onde $R$ é a resistência do material, $\rho$ a sua resistividade, $L$ o comprimento e $A$ a área da seção transversal --- a resistência é diretamente proporcional ao comprimento do resistor.
+    
+    Assim, quanto mais próximo o terminal central estiver da posição 3, maior será a resistência. A Figura \ref{fig:potenciometro} exemplifica o uso de um potenciômetro em sua representação gráfica.
+
+    Resistores variáveis são amplamente utilizados em dispositivos como controles de volume em equipamentos de áudio, nos quais a resistência ajusta a tensão, afetando diretamente a saída do som.
 
     \begin{figure}[H]
         \centering
+        \caption{Representação gráfica de potenciômetro.}
         \begin{minipage}{0.4\textwidth}
             \centering
-            \caption{Representação gráfica de potenciômetro.}
             \includegraphics[width=\textwidth]{external-figures/resistor-variavel.png}
-            \raggedright \footnotesize Fonte: ricardoteix.com.
+            \raggedright \footnotesize Fonte: ricardoteix.com (2021)\nocite{ricardo_teix}.
             \label{fig:potenciometro}
         \end{minipage}
     \end{figure}
-    
-    Esse funcionamento advém da variação do comprimento do segmento do resistor, que, pela equação $R = \rho\times\frac{L}{A}$ --- onde $R$ é a resistência do material, $\rho$ a sua resistividade, $L$ o comprimento e $A$ a área da seção transversal --- é diretamente proporcional ao comprimento do resistor, ou seja, quanto mais próximo do terminal 3, maior a resistência obtida.
 
-    Alguns usos de resistores variáveis se dão em equipamentos de áudio, onde o volume, por exemplo, depende diretamente da tensão.
     \begin{figure}[H]
         \centering
         \caption{Representação de resistor fixo e variável em um circuito.}
@@ -130,25 +137,60 @@
     
 
     \subsection{OHMÍMETRO}\indent
-    Ohmímetros são equipamentos de medição de resistência elétrica.
+
+    O ohmímetro é um dispositivo para a medição da resistência elétrica. Para realizar a medição, o ohmímetro deve ser conectado em paralelo com o resistor e não deve ser exposto a nenhuma tensão externa, pois o aparelho funciona fornecendo uma corrente ao resistor e medindo a tensão entre seus terminais \parencite{ohmmeter_website}.
     
-    Teste 2.
-    \begin{figure}[h!]
+    A partir dessa medição, é possível calcular a resistência utilizando a Lei de Ohm. Caso haja uma fonte de tensão adicional no circuito, a medição poderá ser afetada, uma vez que a tensão nos terminais do resistor será influenciada pela presença dessa fonte. A Figura \ref{fig:ohmimetro} ilustra o esquema de ligação do ohmímetro.
+    \begin{figure}[H]
         \centering
+        \caption{Circuito simplificado de um ohmímetro.}
         \begin{minipage}{0.5\textwidth}
             \centering
-            \caption{Descrição da figura.}
-            \includegraphics[width=\textwidth]{example-image}
-            \raggedright \footnotesize Fonte: Autor ou fonte da imagem.
-            \label{fig:minhaFigura}
+            \begin{tikzpicture}
+                \draw (-0.5,0) -- (0,0) to [R, l=$R$] (3,0) to
+                [short, *-] (3,2) to
+                [rmeterwa, t=$\Omega$] (0,2) to
+                [short, -*] (0,0);
+                \draw (3,0) -- (3.5,0);
+            \end{tikzpicture}
+            \label{fig:ohmimetro}
         \end{minipage}
     \end{figure}
-\newpage
-Teste circuitos:
 
-\begin{tikzpicture}
-    \draw (0,0) -- (1,0);
-\end{tikzpicture}
+\section{PRÁTICA EM LABORATÓRIO}\indent
+
+Primeiramente, foram identificados 10 resistores com base na cor de cada uma de suas faixas  e anotou-se seus valores nominais e tolerâncias.
+
+Após isso, mediu-se a resistência de cada resistor com um multímetro na escala de resistência e anotou-se os valores medidos. Então, calculou-se o erro utilizando a Equação \ref{eq:erro}:
+\begin{equation}
+    Erro(\%) = \left(1 - \frac{R_{medido}}{R_{nominal}}\right)\times 100\%
+    \label{eq:erro}
+\end{equation}
+
+Os resultados medidos estão contidos na Tabela \ref{tab:erro_resistores}.
+\begin{table}[H]
+    \caption{Valores e nominais e erro de medição dos resistores.}
+    \label{tab:erro_resistores}
+    \centering
+    \setstretch{1.5}{
+    \begin{tabular}{ccccc}
+        \hline Resistor & Valor nominal ($\Omega$) & Tolerância (\%) & Valor medido ($\Omega$) & Erro (\%)\\
+        \hline $R_1$ & & & & \\
+        $R_2$ & & & & \\
+        $R_3$ & & & & \\
+        $R_4$ & & & & \\
+        $R_5$ & & & & \\
+        $R_6$ & & & & \\
+        $R_7$ & & & & \\
+        $R_8$ & & & & \\
+        $R_9$ & & & & \\
+        $R_{10}$ & & & & \\
+        \hline
+    \end{tabular}}
+
+
+    \footnotesize{Fonte: Elaborado pelo autor.}
+\end{table}
 
 \begin{center}\small
     \begin{circuitikz}[american]
@@ -190,49 +232,6 @@ Teste circuitos:
     \draw (A) to [open, l=$v_0$] (B);
 \end{circuitikz}
 \end{center} 
-
-
-Isso está na figura \ref{fig:minhaFigura}. Segue a equação \ref{eq: Potência} da Potência:
-    \begin{multicols}{2}
-        
-        \begin{equation}
-            P = \frac{dw}{dt}
-            \label{eq: Potência}
-        \end{equation}
-        \columnbreak
-        
-        \noindent $P$ = Potência, em Watts\\
-        $w$ = Trabalho, em Joules\\
-        $t$ = Tempo, em segundos\\
-    \end{multicols}
-    
-\begin{table}[H]
-    \centering
-    \caption{Sample Table 1}
-    \begin{tabular}{|c|c|}
-        \hline
-        Column 1 & Column 2 \\
-        \hline
-        Data 1 & Data 2 \\
-        \hline
-    \end{tabular}
-    \label{tab:tabela teste}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{Sample Table 2}
-    \begin{tabular}{|c|c|}
-        \hline
-        Column A & Column B \\
-        \hline
-        Data A & Data B \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\parencite{einstein}
-\cite{dirac}
 
 \newpage
 \setstretch{1}
