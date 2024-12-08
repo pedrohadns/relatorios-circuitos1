@@ -172,81 +172,251 @@
         \end{minipage}
     \end{figure}
 
-\section{PRÁTICA EM LABORATÓRIO}\indent
+\section{PRÁTICA EM LABORATÓRIO}
+
+
+\subsection{PARTE 1}\indent
 
 Primeiramente, foram identificados 10 resistores com base na cor de cada uma de suas faixas  e anotou-se seus valores nominais e tolerâncias.
 
 Após isso, mediu-se a resistência de cada resistor com um multímetro na escala de resistência e anotou-se os valores medidos. Então, calculou-se o erro utilizando a Equação \ref{eq:erro}:
 \begin{equation}
-    Erro(\%) = \left(1 - \frac{R_{medido}}{R_{nominal}}\right)\times 100\%
+    Erro(\%) = \left(\frac{R_{medido}}{R_{nominal}} -1\right)\times 100\%
     \label{eq:erro}
 \end{equation}
 
-Os resultados medidos estão contidos na Tabela \ref{tab:erro_resistores}.
+As medições e erros calculados estão contidos na Tabela \ref{tab:erro_resistores}.
 \begin{table}[H]
     \caption{Valores e nominais e erro de medição dos resistores.}
     \label{tab:erro_resistores}
     \centering
     \setstretch{1.5}{
     \begin{tabular}{ccccc}
-        \hline Resistor & Valor nominal ($\Omega$) & Tolerância (\%) & Valor medido ($\Omega$) & Erro (\%)\\
-        \hline $R_1$ & & & & \\
-        $R_2$ & & & & \\
-        $R_3$ & & & & \\
-        $R_4$ & & & & \\
-        $R_5$ & & & & \\
-        $R_6$ & & & & \\
-        $R_7$ & & & & \\
-        $R_8$ & & & & \\
-        $R_9$ & & & & \\
-        $R_{10}$ & & & & \\
+        \hline Resistor & Valor nominal ($\Omega$) & Tolerância (\%) & Valor medido ($\Omega$) & Erro (\%) \\
+        \hline $R_1$    & 47 k                     & $\pm$5          & 46,3 k                  & -1,49     \\
+        $R_2$           & 22 k                     & $\pm$5          & 21,6 k                  & -1,82     \\
+        $R_3$           & 5,6 k                    & $\pm$5          & 5,48 k                  & -2,14     \\
+        $R_4$           & 22                       & $\pm$5          & 21,5                    & -2,27     \\
+        $R_5$           & 10 k                     & $\pm$5          & 9,88 k                  & -1,20     \\
+        $R_6$           & 3,9 k                    & $\pm$5          & 3,88 k                  & -0,51     \\
+        $R_7$           & 150                      & $\pm$5          & 150                     & 0,00      \\
+        $R_8$           & 27 k                     & $\pm$5          & 26,77 k                 & -0,85     \\
+        $R_9$           & 3,3 k                    & $\pm$5          & 3,25 k                  & -1,52     \\
+        $R_{10}$        & 1,2 k                    & $\pm$5          & 1,18 k                  & -1,67     \\
         \hline
-    \end{tabular}}
-
-
+    \end{tabular}}\\
     \footnotesize{Fonte: Elaborado pelo autor.}
 \end{table}
 
-\begin{center}\small
-    \begin{circuitikz}[american]
-        \draw (0,0) to [resistor, l=10 $\Omega$] (3,0) to [short, *-] (3,0)
-        to [resistor, l_=60 $\Omega$] (3,2)
-        to [resistor, l_=10 $\Omega$] (3,4)
-        to [resistor, l_=130 $\Omega$] (3,6)
-        to [short, *-, f_<=$i_g$] (0,6)
-        to [voltage source, v_=600 V, sources/scale=2] (0,0);
-        \draw (3,6) to [R, l=34 $\Omega$] (7,6)
-        to [short, *-] (7,6)
-        to [R, l=72 $\Omega$, f_=$i_0$] (7,3)
-        to [R, l=8 $\Omega$] (7,0)
-        to [short, -*] (7,0)
-        to (7,0) -- (3,0);
-        \draw (7,6) to (7,6) -- (10,6)
-        to [R, l=20 $\Omega$] (10,0)
-        to (10,0) -- (7,0);
-    \end{circuitikz}
-\end{center}
+\begin{figure}[H]
+    \centering
+    \caption{Resistores utilizados na parte 1.}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{external-figures/resistores-pratica1.png}\\
+        \raggedright\footnotesize{Fonte: Elaborado pelo autor.}
+        \label{fig:pratica1}
+    \end{minipage}
+\end{figure}
 
-\begin{center}
-\Large
-\begin{circuitikz}[scale=0.5, transform shape]
-    \node (A) at (6.5,3) {};
-    \node (B) at (8.5,3) {};
-    \ctikzset{nodes width=0.08};
-    \draw(0,0) to [short, -*] (3,0)
-    to [R, l_=3 k$\Omega$, -*] (3,3)
-    to [R, l_=2 k$\Omega$, -*] (3,6)
-    to [short] (0,6)
-    to [current source, l_=4.5 mA, invert, sources/scale=2] (0,0);
-    \draw (3,6) to [short] (12,6)
-    to [R, l=1.5 k$\Omega$, -*] (12,3)
-    to [R, l=6 k$\Omega$] (12,0)
-    to [short] (3,0);
-    \draw (3,3) to [R, l=1 k$\Omega$, -*] (A) node[label={above: +}] {};
-    \draw (12,3) to [R, l_=5 k$\Omega$, -*] (B) node[label={above: -}] {};
-    \draw (A) to [open, l=$v_0$] (B);
-\end{circuitikz}
-\end{center} 
+\subsection{PARTE 2}\indent
+
+A segunda parte teve como objetivo mostrar a relação entre corrente e tensão de um resistor conforme a tensão varia.
+
+Para isso, foi utilizado um multímetro, uma fonte variável utilizada na faixa de 0 V a 12 V e quatro resistores com resistências de 1 k$\Omega$ a 50 k$\Omega$, mostrados na Figura \ref{fig:pratica2}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Resistores utilizados na parte 2.}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{external-figures/resistores-pratica2.png}\\
+        \raggedright\footnotesize{Fonte: Elaborado pelo autor.}
+        \label{fig:pratica2}
+    \end{minipage}
+\end{figure}
+
+Primeiramente, foi montado o circuito conforme a Figura \ref{fig:pratica-parte2}, a fonte foi ajustada para permitir uma corrente máxima de 0,36 A (inferior ao máximo que o multímetro em questão suporta).
+
+\begin{figure}[H]
+    \centering
+    \caption{Circuito da parte 2 da aula prática.}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \caption{Em esquema.}
+        \begin{tikzpicture}
+            \tikzset{vmeter/.style={rmeterwa, t=V}}
+            \tikzset{ameter/.style={rmeterwa, t=A}}
+            \draw (0,0) to [short] (3,0) to
+            [short] (5,0) to
+            [vmeter] (5,3) to
+            [short] (3,3) to
+            [ameter, t=mA] (0,3) to
+            [battery1, l_=$E$, name=battery] (0,0);
+            \ctikztunablearrow{2}{1}{-210}{battery};
+            \draw (0,1.5) node[below right] {\small$-$}
+            (0,1.5) node[above right] {\small$+$};
+            \draw (3,0) to [R, l=$R$] (3,3);
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \caption{No laboratório.}
+        \includegraphics[width=\linewidth]{external-figures/circuito-pratica2.png}
+    \end{subfigure}
+    \label{fig:pratica-parte2}
+\end{figure}
+
+Então, variou-se a tensão, começando de 12 V até 0 V, e para cada tensão diferente mediu-se a corrente no respectivo resistor e anotou-a. Os resultados foram expressados na Tabela \ref{tab:corrente-fonte-variavel}.
+
+\begin{table}[H]
+    \caption{Corrente que passa por cada resistor conforme tensão.}
+    \label{tab:corrente-fonte-variavel}
+    \centering
+    \setstretch{1.5}{
+    \begin{tabular}{ccccc}
+        \hline $R$     & 6,2 k$\Omega$ & 10 k$\Omega$ & 22 k$\Omega$ & 27 k$\Omega$ \\
+        \hline $E$ (V) & $i_1$ (mA)    & $i_2$ (mA)   & $i_3$ (mA)   & $i_4$ (mA)   \\
+        \hline 0       & 0,00          & 0,00         & 0,00         & 0,00         \\
+        2              & 0,33          & 0,21         & 0,09         & 0,07         \\
+        4              & 0,65          & 0,41         & 0,18         & 0,15         \\
+        6              & 0,97          & 0,61         & 0,28         & 0,22         \\
+        8              & 1,29          & 0,81         & 0,36         & 0,29         \\
+        10             & 1,61          & 1,01         & 0,46         & 0,37         \\
+        12             & 1,93          & 1,21         & 0,55         & 0,45         \\
+        \hline
+    \end{tabular}}\\
+    \footnotesize{Fonte: Elaborado pelo autor.}
+\end{table}
+
+\subsubsection{Exercícios}
+
+\textbf{1 - }Com os valores obtidos, levante o gráfico $V=f(i)$ para cada resistor.
+
+\begin{figure}[H]
+    \centering
+    \caption{Resposta ao exercício 1.}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \caption{$R_{6,2\text{k}\Omega}$}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[
+                axis lines=middle,
+                xlabel={$i$ (mA)},
+                ylabel={$V$ (V)},
+                xlabel style = {at={(axis description cs:1.15,0)},anchor=south east},
+                ylabel style = {at={(axis description cs:0,1)},anchor=south},
+                xmin=-0.2, xmax=2.2,
+                ymin=-2, ymax=14,
+                xtick={0, 0.33, 0.65, 0.97, 1.29, 1.61, 1.93},
+                xticklabels={0, 0.33, 0.65, 0.97, 1.29, 1.61, 1.93},
+                ytick={0, 2, 4, 6, 8, 10, 12},
+                yticklabels={0, 2, 4, 6, 8, 10, 12},
+                x tick label style={rotate=45, anchor=east}
+            ]
+            \addplot coordinates {
+                (0,0) (0.33,2) (0.65,4) (0.97,6) (1.29,8) (1.61,10) (1.93,12)
+            };
+            \node at (axis cs:0,0) [anchor=north east] {$0$};
+            \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \caption{$R_{10\text{k}\Omega}$}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[
+                axis lines=middle,
+                xlabel={$i$ (mA)},
+                ylabel={$V$ (V)},
+                xlabel style = {at={(axis description cs:1.15,0)},anchor=south east},
+                ylabel style = {at={(axis description cs:0,1)},anchor=south},
+                xmin=-0.2, xmax=1.75,
+                ymin=-2, ymax=14,
+                xtick={0, 0.21, 0.41, 0.61, 0.81, 1.01, 1.21},
+                xticklabels={0, 0.21, 0.41, 0.61, 0.81, 1.01, 1.21},
+                ytick={0, 2, 4, 6, 8, 10, 12},
+                yticklabels={0, 2, 4, 6, 8, 10, 12},
+                x tick label style={rotate=45, anchor=east}
+            ]
+            \addplot coordinates {
+                (0,0) (0.21,2) (0.41,4) (0.61,6) (0.81,8) (1.01,10) (1.21,12)
+            };
+            \node at (axis cs:0,0) [anchor=north east] {$0$};
+            \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}
+
+\vspace{\baselineskip}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \caption{$R_{22\text{k}\Omega}$}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[
+                axis lines=middle,
+                xlabel={$i$ (mA)},
+                ylabel={$V$ (V)},
+                xlabel style = {at={(axis description cs:1.15,0)},anchor=south east},
+                ylabel style = {at={(axis description cs:0,1)},anchor=south},
+                xmin=-0.08, xmax=0.75,
+                ymin=-2, ymax=14,
+                xtick={0, 0.09, 0.18, 0.28, 0.36, 0.46, 0.55},
+                xticklabels={0, 0.09, 0.18, 0.28, 0.36, 0.46, 0.55},
+                ytick={0, 2, 4, 6, 8, 10, 12},
+                yticklabels={0, 2, 4, 6, 8, 10, 12},
+                x tick label style={rotate=45, anchor=east}
+            ]
+            \addplot coordinates {
+                (0,0) (0.09,2) (0.18,4) (0.28,6) (0.36,8) (0.46,10) (0.55,12)
+            };
+            \node at (axis cs:0,0) [anchor=north east] {$0$};
+            \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \caption{$R_{27\text{k}\Omega}$}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[
+                axis lines=middle,
+                xlabel={$i$ (mA)},
+                ylabel={$V$ (V)},
+                xlabel style = {at={(axis description cs:1.15,0)},anchor=south east},
+                ylabel style = {at={(axis description cs:0,1)},anchor=south},
+                xmin=-0.07, xmax=0.6,
+                ymin=-2, ymax=14,
+                xtick={0, 0.07, 0.15, 0.22, 0.29, 0.37, 0.45},
+                xticklabels={0, 0.07, 0.15, 0.22, 0.29, 0.37, 0.45},
+                ytick={0, 2, 4, 6, 8, 10, 12},
+                yticklabels={0, 2, 4, 6, 8, 10, 12},
+                x tick label style={rotate=45, anchor=east}
+            ]
+            \addplot coordinates {
+                (0,0) (0.07,2) (0.15,4) (0.22,6) (0.29,8) (0.37,10) (0.45,12)
+            };
+            \node at (axis cs:0,0) [anchor=north east] {$0$};
+            \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}
+    \label{fig:resposta-ex1}
+\end{figure}
+
+\noindent\textbf{2 - }Determine, por meio do gráfico, o valor de cada resistência.
+
+O valor de cada resistência pode ser encontrado calculando a tangente do ângulo compreendido entre a reta $V=f(i)$ e o eixo $i$, conforme a Equação \ref{lei-de-ohm}. Dessa forma:
+\begin{align*}
+    R_{6,2\text{k}\Omega}&=\frac{6}{0,97\times 10^{-3}}= 6,19\ \text{k}\Omega \\
+    R_{10\text{k}\Omega}&=\frac{6}{0,61\times 10^{-3}}= 9,83\ \text{k}\Omega \\
+    R_{22\text{k}\Omega}&=\frac{6}{0,28\times 10^{-3}}= 21,43\ \text{k}\Omega \\
+    R_{27\text{k}\Omega}&=\frac{6}{0,22\times 10^{-3}}= 27,27\ \text{k}\Omega
+\end{align*}
+
+\noindent\textbf{3 - }Explique as discrepâncias dos valores nominais.
+
+\section{CONCLUSÃO}\indent
 
 \newpage
 \setstretch{1}
