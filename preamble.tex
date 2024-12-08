@@ -17,6 +17,7 @@ sorting=nyt
     \renewcommand{\listfigurename}{\texorpdfstring{\normalsize ÍNDICE DE FIGURAS}{ÍNDICE DE FIGURAS}}
 }
 
+\usepackage{subcaption}
 \usepackage{float}
 \usepackage{graphicx} %Para inserir imagens
 \usepackage{geometry} %Para alterar propriedades da página
@@ -46,6 +47,9 @@ bottom=20mm
 \renewcommand{\footrulewidth}{0pt} % Remove a linha horizontal do rodapé
 
 \usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{multicol}
 \usepackage[american]{circuitikz}
 \usetikzlibrary{external}\tikzexternalize[prefix=external-figures/]
