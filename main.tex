@@ -61,6 +61,46 @@
     
     \subsection{RESISTORES}
     Resistores são componentes eletrônicos fundamentais, projetados para limitar o fluxo de corrente elétrica em um circuito, convertendo parte dessa energia em calor. Estes dispositivos são tipicamente feitos de materiais com alta resistividade, como carbono ou filme metálico. Dependendo de suas propriedades, os resistores podem ser classificados em fixos, cuja resistência é constante, e variáveis, cuja resistência pode ser ajustada conforme necessário.
+    
+    \subsubsection{Aplicações dos resistores}
+    Os resistores que são ligados em série podem agir como um divisor de tensão, mostrado na Figura \ref{fig:divisor-tensao}, impedindo que a tensão naquela parte do circuito fique fora de um intervalo desejado. Devido à Lei de Ohm, quanto maior a resistência de determinado resistor em um divisor de tensão, maior a tensão entre seus terminais, o que é demonstrado pela Equação \ref{eq:divisor-de-tensao}, derivada diretamente da Lei de Ohm no circuito em questão. Ou seja, se um elemento for ligado aos terminais de $R_1$, por exemplo, ele também terá tensão $v_1$ \parencite[][, p. 65]{nilsson}.
+    
+    \begin{figure}[H]
+        \centering
+        \caption{Circuito divisor de tensão.}
+        \begin{tikzpicture}
+            \draw (-0.5,0) to [short] (2,0) to
+            [short] (2,1) to
+            [R, l=$R_2$, v<=$v_2$] (2,2) to
+            [short] (2,3) to
+            [R, l=$R_1$, v<=$v_1$] (2,4) to
+            [short] (2,5) to
+            [short] (-0.5,5) to
+            [voltage source, l_=$v_s$, sources/scale=1.5] (-0.5,0);
+        \end{tikzpicture}
+        \label{fig:divisor-tensao}
+    \end{figure}
+
+    \begin{equation}
+        v_1=v_s\times\frac{R_1}{R_1+R_2} \text{\hspace{1.5cm} e\hspace{1.5cm}} v_2=v_s\times\frac{R_2}{R_1+R_2}
+        \label{eq:divisor-de-tensao}
+    \end{equation}
+
+    Entretanto, se dois resistores estão em paralelo à uma fonte de corrente, ocorre uma divisão de corrente, em que o resistor de menor resistência recebe proporcionalmente a maior parte da corrente, fenômeno que advém diretamente da Lei de Ohm e Lei de Kirchhoff das Correntes \parencite[][, p. 66]{nilsson}. O circuito em questão e a equação para as correntes em cada resistor são mostrados na Figura \ref{fig:divisor-corrente} e Equação \ref{eq:divisor-de-corrente}, respectivamente.
+    
+    \begin{figure}[H]
+        \centering
+        \caption{Circuito divisor de corrente.}
+        \begin{tikzpicture}
+            \draw (0,0) to [short, -*] (4,0) to
+            [short] (4,1) to
+            [R, l=$R_1$, f<=$i_1$] (4,2) to
+            [short, -*] (4,3) to
+            [short] (0,3) to
+            [current source, l_=$i_s$, invert, sources/scale=1.5] (0,0);
+        \end{tikzpicture}
+        \label{fig:divisor-corrente}
+    \end{figure}
 
     \subsubsection{Resistores Fixos}
     Os resistores fixos possuem características como valor nominal e tolerância, que são determinadas por uma tabela de cores. Cada cor na tabela corresponde a um valor específico, facilitando a identificação e a seleção do resistor adequado para uma aplicação particular. A Tabela \ref{tab:corResist} e a Figura \ref{fig:resistor} ilustram o processo de codificação por cores e a representação de um resistor com suas faixas.
