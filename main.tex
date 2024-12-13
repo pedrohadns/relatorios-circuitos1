@@ -18,7 +18,45 @@
 
     \section*{Pedro Henrique Alves do Nascimento}
     \section{INTRODUÇÃO TEÓRICA}
+    \subsection{RESISTORES EM SÉRIE}
+    É definido que quando somente dois elementos de circuito estão ligados ao mesmo nó, eles estão em série, é fácil ver, aplicando a Lei de Kirchhoff das Correntes em cada nó, que elementos em série conduzem a mesma corrente \parencite[][, p. 61]{nilsson}, como mostrado na Figura \ref{fig:r-serie}.
+
+    \begin{figure}[H]
+        \centering
+        \caption{Resistores ligados em série.}
+        \begin{tikzpicture}
+            \ctikzset{nodes width=0.06}
+            \draw (0,0) node[below] {$h$} to [R, l=$R_7$, *-*, v<=$ $] (3,0) node[below] {$g$} to
+            [R, l=$R_6$, -*, v<=$ $] (6,0) node[below] {$f$} to
+            [R, l=$R_5$, -*, v<=$ $] (9,0) node[below] {$e$} to
+            [R, l_=$R_4$, -*, v<=$ $] (9,3) node[above] {$d$} to
+            [R, l_=$R_3$, -*, v^<=$ $] (6,3) node[above] {$c$} to
+            [R, l_=$R_2$, -*, v^<=$ $] (3,3) node[above] {$b$} to
+            [R, l_=$R_1$, v^<=$ $, -*] (0,3) node[above] {$a$} to
+            [voltage source, v_=$v_s$, f<=$i_s$, sources/scale=1.5] (0,0);
+        \end{tikzpicture}
+        \label{fig:r-serie}
+    \end{figure}
     
+    Além disso, com a Lei de Kirchhoff das Tensões, é possível ver que $n$ resistores em série podem ser substituídos por um único resistor equivalente de resistência $R_{eq}$, conforme mostrados nas Equações \ref{eq:parte-1-serie} e \ref{eq:parte-2-serie} e na Figura \ref{fig:r-serie-equivalente}.
+    \begin{gather}
+        -v_s+i_sR_1+i_sR_2+i_sR_3+i_sR_4+i_sR_5+i_sR_6+i_sR_7=0 \label{eq:parte-1-serie}\\
+        v_s=i_s\left(R_1+R_2+R_3+R_4+R_5+R_6+R_7\right)\implies v_s=i_s\cdot R_{eq} \label{eq:parte-2-serie}
+    \end{gather}
+
+    \begin{figure}[H]
+        \centering
+        \caption{Resistor em série equivalente.}
+        \begin{tikzpicture}
+            \ctikzset{nodes width=0.06}
+            \draw (0,0) to [short, *-] (3,0) to
+            [R, l_=$R_{eq}$, v^<=$ $] (3,3) to
+            [short, -*] (0,3) node[above] {$a$} to
+            [voltage source, v_=$v_s$, f<=$i_s$, sources/scale=1.5] (0,0) node[below] {$h$};
+        \end{tikzpicture}
+        \label{fig:r-serie-equivalente}
+    \end{figure}
+
     \section{CONCLUSÃO}
 
     \newpage
